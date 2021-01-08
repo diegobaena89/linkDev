@@ -1,11 +1,21 @@
+// Set Colors
+$white: #f2f2f2;
+$dark-grey: #262626;
+$darkest-grey: #2b2b2b;
+$medium-grey: #777777;
+$card-grey: #414141;
+$card-hover: #808080;
+$golden-yellow: rgb(226, 209, 50);
+
+// Set Background
 *{
     margin: 0;
     padding: 0;
-    color: #f2f2f2;
+    color: $white;
 }
 
 body {
-    background: #262626;
+    background: $dark-grey;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -24,19 +34,17 @@ body {
 .imagem {
     display: inline-block;
     padding: 12px;
-    background: linear-gradient(130deg, #2b2b2b, #777777);
+    background: linear-gradient(130deg, $darkest-grey, $medium-grey);
     margin: auto;
     border-radius: 50%;
     background-size: 200% 200%;
     box-shadow: 1px 1px 10px ;
-}
-
-
-.imagem img {
-    display: block;
-    width: 180px;
-    height: 180px;
-    border-radius: 50%; 
+        img {
+            display: block;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%; 
+        }
 }
 
 .name {
@@ -46,7 +54,7 @@ body {
 
 .user {
     margin: 5px;
-    color: rgb(226, 209, 50);
+    color: $golden-yellow;
 }
 
 .container-grid {
@@ -61,75 +69,81 @@ body {
     margin-top: 40px;
     transition: .5s;
     text-transform: capitalize;
-}
-
-.card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+        .card {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 }
 
 .card-github{
-    background: #414141;
+    background: $card-grey;
     border-radius: 10px;
     display: flex;
 }
 
 
 .card-linkedin {
-    background: #414141;
+    background: $card-grey;
     border-radius: 10px;
 }
 
 .card-instagram {
-    background: #414141;
+    background: $card-grey;
     border-radius: 10px;
 }
 
 .card-twitter {
-    background: #414141;
+    background: $card-grey;
     border-radius: 10px;
     display: flex;
 }
 
 .card:hover:nth-child(1){
-    background: #808080;
+    background: $card-hover;
     transition: .5s;
 }
 
 .card:hover:nth-child(2){
-    background: #808080 ;
+    background: $card-hover ;
     transition: .5s;
 }
 .card:hover:nth-child(3){
-    background: #808080;
+    background: $card-hover;
     transition: .5s;
 }
 .card:hover:nth-child(4){
-    background: #808080;
+    background: $card-hover;
     transition: .5s;
+}
+
+@mixin text-card {
+    padding: 50px 125px;
+    text-align: center;
+    text-decoration: none;
 }
 
 .card-github a,
 .card-linkedin a, 
 .card-instagram a,
 .card-twitter a {
-    padding: 50px 125px;
-    text-align: center;
-    text-decoration: none;
+    @include text-card;
 }
 
 p {
     font-size: 1.2em;
 }
 
+@mixin font-icon {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
 .fa-github,
 .fa-linkedin-in,
 .fa-instagram,
 .fa-briefcase {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-    
+    @include font-icon;
 }
 
 @media only screen and (max-width: 600px) {
